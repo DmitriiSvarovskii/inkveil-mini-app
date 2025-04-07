@@ -1,80 +1,240 @@
-/* Общие стили */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #fff;
-}
-
-/* Контейнер всего приложения */
+/* Общий контейнер приложения */
 .app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-/* Основной контент */
-.page-container {
-    flex: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    /* Светлый фон */
+    color: #000;
     padding: 20px;
-    padding-bottom: 60px;
-    /* Отступ для нижней навигации (подберите по высоте навигации) */
-    overflow-y: auto;
+    /* Добавим немного внутреннего отступа */
+    border-radius: 12px;
+    /* Скругление углов */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding-bottom: 80px;
+    /* Отступ снизу для плавающей кнопки */
 }
 
-/* Нижняя навигация */
-.bottom-nav {
-    position: fixed;
-    /* Фиксированное положение */
-    bottom: 0;
-    /* Привязка к нижней части экрана */
-    left: 0;
-    right: 0;
-    background-color: #1e1e1e;
-    padding: 10px 0;
+/* Верхняя панель */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    /* Вместо жесткой границы можно добавить легкую тень */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header-left {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.header-right .icon-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #007aff;
+    /* Акцентный синий, как в iOS */
+}
+
+/* Статистика */
+.stats-container {
     display: flex;
     justify-content: space-around;
-    z-index: 1000;
-    /* Чтобы навигация была поверх других элементов */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.bottom-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
+.stat {
+    text-align: center;
 }
 
-/* Форма дневниковой записи */
-.diary-form {
-    display: flex;
-    flex-direction: column;
+.stat-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #111;
 }
 
-.diary-textarea {
-    resize: none;
-    padding: 10px;
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Записи */
+.entries-container {
+    padding: 15px;
+}
+
+.entry-group {
+    margin-bottom: 20px;
+}
+
+.group-label {
+    font-size: 1.2rem;
+    font-weight: bold;
     margin-bottom: 10px;
-    border-radius: 4px;
-    border: none;
-    font-size: 16px;
+    color: #333;
 }
 
-.submit-button {
-    padding: 10px;
-    background-color: #3a3a3a;
-    border: none;
-    border-radius: 4px;
+/* Изменение карточек записей для более современного вида */
+.entry-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease;
+}
+
+.entry-card:hover {
+    transform: translateY(-2px);
+}
+
+.entry-card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.entry-card-text {
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Плавающая кнопка "+" */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007aff;
     color: #fff;
-    font-size: 16px;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Модальное окно (оверлей) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-date {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.done-button {
+    background: none;
+    border: none;
+    color: #007aff;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
-.submit-button:hover {
-    background-color: #555;
+/* Форма записи в модальном окне */
+.entry-form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Стили для компонентов анализа */
-.mood-chart,
-.recommendation {
-    margin: 20px 0;
+.entry-title-input {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.entry-textarea-input {
+    padding: 10px;
+    font-size: 1rem;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.submit-form-button {
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.entry-card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4em;
+    max-height: calc(1.4em * 5);
+    /* 5 строк по 1.4em */
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/* Состояние свернуто: ограничение до 5 строк */
+.expandable-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    /* <-- вот эта строка добавляется */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4em;
+    max-height: calc(1.4em * 5);
+    transition: max-height 0.3s ease;
+}
+
+/* Состояние развернуто: снимаем ограничение */
+.expandable-text.expanded {
+    display: block;
+    max-height: none;
+    transition: max-height 0.3s ease;
 }
