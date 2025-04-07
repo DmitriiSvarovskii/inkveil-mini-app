@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/inkveil-mini-app/static/css/main.ac46f836.css",
-    "main.js": "/inkveil-mini-app/static/js/main.cf2f037f.js",
+    "main.js": "/inkveil-mini-app/static/js/main.8df9bfb4.js",
     "index.html": "/inkveil-mini-app/index.html",
     "main.ac46f836.css.map": "/inkveil-mini-app/static/css/main.ac46f836.css.map",
-    "main.cf2f037f.js.map": "/inkveil-mini-app/static/js/main.cf2f037f.js.map"
+    "main.8df9bfb4.js.map": "/inkveil-mini-app/static/js/main.8df9bfb4.js.map"
   },
   "entrypoints": [
     "static/css/main.ac46f836.css",
-    "static/js/main.cf2f037f.js"
+    "static/js/main.8df9bfb4.js"
   ]
 }
