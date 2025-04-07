@@ -238,3 +238,54 @@
     max-height: none;
     transition: max-height 0.3s ease;
 }
+
+/* Контейнер кнопки, фиксированный внизу по центру */
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 60px;
+    /* размер кнопки */
+    height: 60px;
+}
+
+/* Элемент размытия — занимает тот же размер, что и кнопка */
+.bottom-blur {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 500;
+    /* Маска: нижняя часть полностью, верхняя – плавно прозрачная */
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Контейнер для кнопки */
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Кнопка "+" */
+.fab {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #800080;
+    font-size: 2.5rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

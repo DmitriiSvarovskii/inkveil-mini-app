@@ -147,7 +147,10 @@ const App: React.FC = () => {
             </div>
 
             {/* Плавающая кнопка "+" */}
-            <button className="fab" onClick={openForm}>+</button>
+            <div className="bottom-blur" />
+            <div className="fab-container">
+                <button className="fab" onClick={openForm}>+</button>
+            </div>
 
             {/* Модальное окно для добавления новой записи */}
             {isFormOpen && (
