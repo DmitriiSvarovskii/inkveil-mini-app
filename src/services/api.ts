@@ -11,16 +11,27 @@ export interface DiaryEntryAPI {
     updated_at?: string | null;
 }
 
-// Функция для получения списка записей
 export const getEntries = async (): Promise<DiaryEntryAPI[]> => {
-    try {
-        const response = await axios.get<DiaryEntryAPI[]>(`${API_BASE_URL}/diary/`);
-        return response.data;
-    } catch (error) {
-        console.error('Ошибка получения записей', error);
-        throw error;
-    }
+    const response = await axios.get(`${API_BASE_URL}/diary/`, {
+        headers: {
+            "ngrok-skip-browser-warning": "true"
+        }
+    });
+    console.log('response.data:', response.data);
+    return response.data;
 };
+// Функция для получения списка записей
+// export const getEntries = async (): Promise<DiaryEntryAPI[]> => {
+//     console.log('Загружаю:', `${API_BASE_URL}/diary/`);
+//     try {
+//         const response = await axios.get<DiaryEntryAPI[]>(`${API_BASE_URL}/diary/`);
+//         console.log('response.data:', response.data); 
+//         return response.data;
+//     } catch (error) {
+//         console.error('Ошибка получения записей', error);
+//         throw error;
+//     }
+// };
 
 // Функция для создания новой записи
 // Передаем объект с полями title и text; объединяем их через перенос строки.
